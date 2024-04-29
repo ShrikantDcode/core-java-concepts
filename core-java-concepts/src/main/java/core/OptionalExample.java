@@ -2,6 +2,8 @@ package core;
 
 import model.Cat;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class OptionalExample {
@@ -13,6 +15,8 @@ public class OptionalExample {
         Integer age = myCat.map(Cat::getAge)
                 .orElse(0);
         System.out.println(">>> "+age);
+        Optional<Integer> optionalAge = myCat.map(Cat::getAge);
+        System.out.println("> "+optionalAge);
 
         //wrong way
 //        if(myCat.isPresent()) {
@@ -20,10 +24,14 @@ public class OptionalExample {
 //        } else {
 //            System.out.println(0);
 //        }
+        //------------------------------------------------
+        List<Optional<Employee>> l = new ArrayList<>();
+        l.add(Optional.empty());
+        System.out.println(l.get(0).map(Employee::getName).orElse("Jhon"));
     }
 
     public static Optional<Cat> findByName(String name) {
         Cat cat = new Cat(3, name);
-        return Optional.ofNullable(cat);
+        return Optional.ofNullable(null);
     }
 }

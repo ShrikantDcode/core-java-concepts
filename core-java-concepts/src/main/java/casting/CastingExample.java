@@ -4,6 +4,8 @@ import model.Animal;
 import model.Cat;
 import model.Dog;
 
+import java.util.Collections;
+
 public class CastingExample {
     public static void main(String[] args) {
         Animal animal = new Dog(2, "tommy");

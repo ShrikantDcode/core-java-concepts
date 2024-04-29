@@ -14,11 +14,11 @@ public class Dog extends Animal{
                 ", name='" + name + '\'' +
                 '}';
     }
-
-    @Override
-    public void makeSound() {
-        System.out.println("Woof Woof !!");
-    }
+//
+//    @Override
+//    public void makeSound() {
+//        System.out.println("Woof Woof !!");
+//    }
 
     @Override
     public void eat(Food df) {
