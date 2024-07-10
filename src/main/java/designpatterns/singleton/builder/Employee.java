@@ -1,6 +1,8 @@
 package designpatterns.singleton.builder;
 
 
+import java.util.Objects;
+
 public class Employee {
     private String fName;
     private String lName;
@@ -41,7 +43,9 @@ public class Employee {
 
 
         //setters for optional fields
-        public EmployeeBuilder setlName(String lName) {
+        public EmployeeBuilder setlName(String lName) throws Exception {
+            if(Objects.isNull(lName) || lName.equals("") )
+                throw new Exception("null value not allowed");
             this.lName = lName;
             return this;
         }

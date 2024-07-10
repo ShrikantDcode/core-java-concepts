@@ -5,8 +5,8 @@ public class BuilderDemo {
         Employee employee1 = null;
         try {
             employee1 = new Employee.EmployeeBuilder("Shrikant")
-                    .setlName("Dande")
-                    .setAge(340)
+                    .setlName("")
+                    .setAge(40)
                     .build();
         } catch (Exception e) {
             throw new RuntimeException(e);
