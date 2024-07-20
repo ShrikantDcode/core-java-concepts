@@ -1,6 +1,7 @@
 package oop;
 class A {
     A() {
+        System.out.println("A constructor");
         print();
     }
     void print() {
@@ -14,6 +15,7 @@ class A {
 class B extends A {
     int i;
     B() {
+        System.out.println("B constructor");
         super.print();
         this.i = 4;
 
@@ -29,10 +31,10 @@ class B extends A {
 public class DynamicBindingExample {
     public static void main(String[] args) {
         A a = new B();
-        a.print();
+          //a.print();
 
-        A a2 = new A();
-        invokeHelper(a);
+//        A a2 = new A();
+//        invokeHelper(a2);
 }
     static void invokeHelper(A reference){
         if(reference instanceof B) {
