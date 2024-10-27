@@ -4,8 +4,6 @@ import model.Animal;
 import model.Cat;
 import model.Dog;
 
-import java.util.Collections;
-
 public class CastingExample {
     public static void main(String[] args) {
         Animal animal = new Dog(2, "tommy");
@@ -21,7 +19,7 @@ public class CastingExample {
 
     public static void doAnimalStuff(Animal animal) {
        if(animal instanceof Dog) {
-           Dog dog = (Dog) animal;
+           Dog dog = (Dog) animal; //narrowing - bigger type to smaller type
            dog.makeSound();
            dog.growl();
        } else if(animal instanceof Cat) {

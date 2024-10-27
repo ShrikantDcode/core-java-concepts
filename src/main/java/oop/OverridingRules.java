@@ -1,5 +1,7 @@
 package oop;
 
+import java.util.Stack;
+
 // Superclass
 class SuperClass<T> {
     // Public method with generic return type and checked exception
@@ -24,17 +26,19 @@ class SubClass extends SuperClass<String> {
 class SubClassRestricted extends SuperClass<String> {
 
     // Overriding method with reduced accessibility
-    @Override
-    protected String process(String input) throws IllegalArgumentException {
+    // uncomment to check access modifier rule
+   /*  @Override
+     protected String process(String input) throws IllegalArgumentException {
         System.out.println("SubClassRestricted processing: " + input);
         return input.toLowerCase();
-    }
+    } */
 }
 
 // Main class to test the overriding rules
 public class OverridingRules {
     public static void main(String[] args) {
         try {
+
             SuperClass<String> superClass = new SubClass();
             System.out.println(superClass.process("Hello"));
 

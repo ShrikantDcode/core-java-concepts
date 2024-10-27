@@ -1,8 +1,7 @@
 package streams;
 
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 public class IntStreamExample {
     public static void main(String[] args) {
@@ -28,5 +27,10 @@ public class IntStreamExample {
                 .limit(3)
                 .mapToInt(Integer::intValue)
                 .toArray();
+
+        //print int values
+        int[] a = {2,3,4};
+        //IntStream.of(a).forEach(System.out::print);
+        Arrays.stream(a).forEach(System.out::print);
     }
 }

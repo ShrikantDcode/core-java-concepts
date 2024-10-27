@@ -1,8 +1,5 @@
 package defaultMethod;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-
 interface MyFunctionalInterface <T>{
     public static void sayHello() {
         System.out.println("Hi I am static method of interface");
@@ -13,8 +10,16 @@ interface MyFunctionalInterface <T>{
         System.out.println("default method doSomethingExtra...called from "+t);
     }
 }
+interface A {
+    public void m1();
+}
 
-public class DefaultMethodExample {
+abstract class ClassA implements A {
+    public void m1() {
+        System.out.println("inside ClassA::m1");
+    }
+}
+public class DefaultMethodExample extends ClassA {
     public static void main(String[] args) {
         MyFunctionalInterface<String> myFunctionalInterface = (s) -> System.out.println("this is me doing something :"+s);
         myFunctionalInterface.doSomething("Shri"); //calling only abstract method of an interface
@@ -25,7 +30,8 @@ public class DefaultMethodExample {
         obj.doSomethingExtra("implementation class object");
 
         MyFunctionalInterface.sayHello(); //calling static method of an interface
-
+        DefaultMethodExample d = new DefaultMethodExample();
+        d.m1();
     }
 }
 

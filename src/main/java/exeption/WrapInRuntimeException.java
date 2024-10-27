@@ -8,8 +8,10 @@ public class WrapInRuntimeException {
 
     public void callingMethod() {
         try {
-            methodThatThrowsException();
+            methodThatThrowsException(); //checked exception thrown
         } catch (Exception e) {
+            //checked exception caught and converted to RuntimeException to stop exception propagation to main method
+            // now main method doesn't have to handle or declare this exception
             throw new RuntimeException("Wrapped exception: " + e.getMessage(), e);
         }
     }
