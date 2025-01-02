@@ -15,6 +15,7 @@ public class CollectionsMethods {
         clientsCode(days); // client code can modify list
         List<String> unmodifiableList = Collections.unmodifiableList(days);
         clientsCode(unmodifiableList); // client code can't modify list ...throws java.lang.UnsupportedOperationException
+
     }
     static void clientsCode(List<String> list){
         list.add("xx");

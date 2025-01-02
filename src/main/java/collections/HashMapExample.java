@@ -3,7 +3,6 @@ package collections;
 import model.Person;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class HashMapExample {
     public static void main(String[] args) {
@@ -12,12 +11,12 @@ public class HashMapExample {
         map.put(new Person(40, "Suresh"), "xyz");
         map.put(new Person(20, "Mahesh"), "earth");
 
-        map.entrySet().forEach(System.out::println);
-        System.out.println("=> "+map.get(new Person(20, "Mahesh")));
-        for(Map.Entry entry: map.entrySet()){
-            System.out.println(entry.getValue());
-        }
-
-
+        map.forEach((k, v) -> {
+            if(k.getAge() == 20){
+                k.setName("xxxx");
+                System.out.println(k);
+            } else {
+                System.out.println(k);
+            }});
     }
 }

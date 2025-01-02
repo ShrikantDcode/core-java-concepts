@@ -63,7 +63,7 @@ public class CollectionFeatures {
         hm.put("AB", 1);
         hm.put("BC", 10);
         hm.put("C", 2);
-        hm.forEach((k, v) -> System.out.println(k+">"+v));
+        hm.forEach((k, v) -> System.out.println(k+":"+v));
         hm.remove("AB", 2);
         System.out.println(hm);
         hm.remove("AB");
@@ -74,10 +74,6 @@ public class CollectionFeatures {
         hm.computeIfPresent("BC", (k, v) -> Integer.valueOf(v*3) ); //k, BiFunction
         System.out.println(hm);
         hm.replaceAll((k ,v) -> 200);
-
-
-        LinkedList<Integer> ls = new LinkedList<>();
-        ls.contains(3);
 
 
     }

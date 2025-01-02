@@ -19,8 +19,8 @@ public class ObjectListProblems {
 
         Student student2 = new Student(
                 "Khyati",
-                20,
-                new Address("1234"),
+                25,
+                new Address("411037"),
                 Arrays.asList(new MobileNumber("1111"), new MobileNumber("3333"), new MobileNumber("1233")));
 
         Student student3 = new Student(
@@ -29,12 +29,20 @@ public class ObjectListProblems {
                 new Address("1236"),
                 Arrays.asList(new MobileNumber("3333"), new MobileNumber("4444")));
         Student student4 = new Student(
-                "Kason",
-                20,
-                new Address("1236"),
+                "Shrikant",
+                25,
+                new Address("413512"),
                 Arrays.asList(new MobileNumber("3333"), new MobileNumber("4444")));
 
-        List<Student> students = Arrays.asList(student1, student2, student3, student4);
+        Student student5 = new Student(
+                "Shrikant",
+                25,
+                new Address("413512"),
+                Arrays.asList(new MobileNumber("3333"), new MobileNumber("4444")));
+
+        List<Student> students = Arrays.asList(student1, student2, student3, student4, student5);
+        Set<Student> stdUnique = students.stream().collect(Collectors.toSet());
+        System.out.println(stdUnique.size()+" "+stdUnique);
         // Get student with exact match name "jayesh"
         Optional<Student> s1 = students.stream().filter(s -> "jayeshx".equalsIgnoreCase(s.getName())).findFirst();
         System.out.println(s1.isPresent() ? "Student is present" : "Student is not present");
@@ -93,10 +101,12 @@ public class ObjectListProblems {
         IntStream newIntStream = objStream.mapToInt(st -> st.length());
         newIntStream.forEach(System.out::print);
         System.out.println("--------group students by two criteras-------------------------");
-        Map<Integer, Map<String, List<Student>>> map2 = students.stream()
-                .collect(Collectors.groupingBy(Student::getAge, Collectors.groupingBy(std -> std.getAddress().getZipcode())));
-        map2.forEach((k, v)->
-                v.forEach((k2, v2) -> System.out.println(k+ " = "+k2+ " - "+v2.toString())));
+        Map<Integer, Map<String, List<Student>>> map2 = students
+                .stream()
+                .collect(Collectors.groupingBy(Student::getAge,
+                        Collectors.groupingBy(std -> std.getAddress().getZipcode())));
+        System.out.println(map2.keySet().toString());
+        //map2.forEach((k, v)-> v.forEach((k2, v2) -> System.out.println(k+ " : "+k2+ " - "+v2.toString())));
 
 
 
